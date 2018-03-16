@@ -54,12 +54,6 @@
 6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6
 </data>
  </layer>
- <imagelayer name="Image Layer 1" visible="0" offsetx="72" offsety="-144">
-  <image source="../kevino.png" width="425" height="465"/>
-  <properties>
-   <property name="parallax" type="float" value="0.5"/>
-  </properties>
- </imagelayer>
  <imagelayer name="Image Layer 2" offsetx="16" offsety="-96">
   <image source="../city.png" width="425" height="465"/>
   <properties>

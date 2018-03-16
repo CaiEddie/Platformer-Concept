@@ -140,18 +140,6 @@ return {
     },
     {
       type = "imagelayer",
-      name = "Image Layer 1",
-      visible = false,
-      opacity = 1,
-      offsetx = 72,
-      offsety = -144,
-      image = "../kevino.png",
-      properties = {
-        ["parallax"] = 0.5
-      }
-    },
-    {
-      type = "imagelayer",
       name = "Image Layer 2",
       visible = true,
       opacity = 1,
