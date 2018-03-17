@@ -44,7 +44,7 @@ function Vase:initialize(map, world, x, y)
 	self.timer:tween(0.5, self, {Sx = 1, Sy = 1, r = 0}, 'in-out-cubic')
 
 	self.dustParticles = DustParticles:new(self.x, self.y)
-	self.light = Light:new(self.map, self.x, self.y,'circle', 0.5, 0.5, "normal")
+	self.light = Light:new(self.map, self.x, self.y,'circle', 0.3, 0.3, "normal")
 end
 
 function Vase:filter(other)

@@ -45,7 +45,7 @@ function Shelf:initialize(map, world, x, y)
 
 
 	self.dustParticles = DustParticles:new(self.x, self.y)
-	self.light = Light:new(self.map, self.x, self.y, 'circle', 0.5, 0.5, "normal")
+	self.light = Light:new(self.map, self.x, self.y, 'circle', 0.4, 0.4, "normal")
 end
 
 function Shelf:filter(other)

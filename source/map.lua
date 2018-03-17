@@ -54,7 +54,9 @@ function Map:loadLevel(level)
 			end
 		else
 			if not self.conditions[obj.properties.condition] then 
-				entityList[obj.name]:new(self, self.world, obj.x, obj.y, obj.properties, obj.width, obj.height)
+				if obj.name ~= '' then
+					entityList[obj.name]:new(self, self.world, obj.x, obj.y, obj.properties, obj.width, obj.height)
+				end
 			end
 		end
 	end

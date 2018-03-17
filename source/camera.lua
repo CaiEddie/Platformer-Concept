@@ -186,19 +186,21 @@ function Camera:draw(level, entities, lights, debug)
 	lg.setCanvas(maskRedCenter)
 	lg.clear(0,0,0)
 
+ 
   lg.setBlendMode("multiply")
-  
+
   for i,light in ipairs(lights) do
   	if light.type == 'normal' then  
-  		lg.setCanvas(mask)
-	  	light:drawEdge(debug)
-	  	lg.setCanvas(maskCenter)
-	  	light:drawCenter(debug)
+	  	light:drawEdge(mask, debug)
+	  	light:drawCenter(maskCenter, debug)
 	  elseif light.type == 'red' then
-	  	lg.setCanvas(maskRedCenter)
-	  	light:drawCenter(debug)
+	  	light:drawCenter(maskRedCenter, debug)
 	  end
 	end
+
+
+
+	lg.setColor(255,255,255,255)
 
 	lg.setCanvas()
 
@@ -213,11 +215,14 @@ function Camera:draw(level, entities, lights, debug)
 
 	lg.setCanvas(light_canvas_center)
 	lg.draw(level.canvas)
+	self.paletteSwap:set('grey')
 	lg.draw(maskCenter)
-
+	self.paletteSwap:unset()
 	lg.setCanvas(light_canvas_red_center)
 	lg.draw(level.canvas)
+	self.paletteSwap:set('grey')
 	lg.draw(maskRedCenter)
+	self.paletteSwap:unset()
 
 	-- Draw canvas at 0,0; this fixes scissoring issues
 	-- Map is scaled to correct scale so the right section is shown

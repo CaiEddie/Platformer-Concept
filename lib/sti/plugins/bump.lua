@@ -39,6 +39,7 @@ return {
 									}
 
 									world:add(t, t.x, t.y, t.width, t.height)
+
 									table.insert(collidables, t)
 								end
 							end
@@ -79,7 +80,7 @@ return {
 											width      = object.width,
 											height     = object.height,
 											layer      = layer,
-											properties = object.properties
+											properties = layer.properties
 										}
 
 										world:add(t, t.x, t.y, t.width, t.height)
@@ -120,7 +121,7 @@ return {
 								width      = obj.width,
 								height     = obj.height,
 								layer      = layer,
-								properties = obj.properties 
+								properties = layer.properties 
 							}
 
 							if obj.gid then

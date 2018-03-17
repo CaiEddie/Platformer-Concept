@@ -71,7 +71,7 @@ function Player:initialize(map, world, x,y)
 	
 	self.drawOrder = 0
 
-	self.light = Light:new(self.map, self.x, self.y, 'circle', 1, 1, "normal")
+	self.light = Light:new(self.map, self.x, self.y, 'circle', 0.8, 0.8, "normal")
 	self.dustParticles = DustParticles:new(self.x, self.y)
 
 	self.dashDistance = dashDistance
@@ -544,7 +544,7 @@ function Possess:exitedState()
 	self.possess = false
 	self.timer:after(0.1, function() self.properties.passable = false end )
 	self.drawOrder = 0
-	self.light = Light:new(self.map, self.x, self.y, 'circle', 1, 1, "normal")
+	self.light = Light:new(self.map, self.x, self.y, 'circle', 0.8, 0.8, "normal")
 end
 
 return Player
