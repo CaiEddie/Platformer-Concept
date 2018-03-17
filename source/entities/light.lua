@@ -71,10 +71,10 @@ local Gx, Gy = self.x, self.y
 		item = items[i]
 		if item.properties.shadows then 
 
-			local N = item.y +1
-			local S = item.y + item.height -2
-			local W = item.x +1
-			local E = item.x + item.width  -2
+			local N = item.y 
+			local S = item.y + item.height 
+			local W = item.x 
+			local E = item.x + item.width  
 
 			local horizontal
 			local vertical
@@ -110,9 +110,9 @@ local Gx, Gy = self.x, self.y
 					y2 = S
 				else 
 					x = W 
-					y = N
+					y = N +1
 					x2 = E 
-					y2 = N
+					y2 = N +1
 				end
 			elseif vertical == 'south' then
 				if horizontal == 'west' then 
@@ -127,20 +127,20 @@ local Gx, Gy = self.x, self.y
 					y2 = S
 				else 
 					x = W 
-					y = S
+					y = S -1
 					x2 = E 
-					y2 = S
+					y2 = S -1
 				end
 			else 
 				if horizontal == 'west' then 
-					x = W 
+					x = W +1
 					y = N 
-					x2 = W 
+					x2 = W +1
 					y2 = S 
 				elseif horizontal == 'east' then 
-					x = E
+					x = E -1
 					y = N 
-					x2 = E
+					x2 = E -1
 					y2 = S
 				end
 			end
