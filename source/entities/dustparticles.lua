@@ -2,7 +2,7 @@ local class = require 'lib.middleclass'
 
 DustParticles = class ("DustParticles")
 
-local img = love.graphics.newImage("assets/dustparticles.png")
+local img = love.graphics.newImage("assets/sprites/dustparticles.png")
 
 function DustParticles:initialize(x,y)
 	self.PS = love.graphics.newParticleSystem(img, 50)

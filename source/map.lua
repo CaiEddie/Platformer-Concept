@@ -11,7 +11,6 @@ local entityList = {
 	Shelf = require 'source.entities.shelf',
 	LevelChange = require 'source.entities.levelchange',
 	Switch = require 'source.entities.switch',
-	Monster = require 'source.entities.monster',
 	Lamp = require 'source.entities.lamp'
 }
 
@@ -132,6 +131,8 @@ function Map:update(dt)
 	for i, light in pairs(self.lights) do 
 		light:update(dt)
 	end
+
+	self.level:update(dt)
 
 end
 

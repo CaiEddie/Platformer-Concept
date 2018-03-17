@@ -145,6 +145,8 @@ function Player:filter(other)
 	 	return false
 	elseif other.properties.passable or other.properties.playerpassable then 
 		return 'cross'
+	elseif other.properties.jumpthru and self.y + self.h > other.y then 
+		return false
 	else
 		return 'slide'
 	end 
@@ -453,6 +455,8 @@ function Dash:filter(other)
 		return false 
 	elseif other.properties.possessable or other.properties.shelf then
 		return "cross"
+	elseif other.properties.jumpthru and self.y + self.h > other.y then 
+		return false
 	else
 		return self.dashResult
 	end

@@ -2,7 +2,7 @@ local class = require 'lib.middleclass'
 
 AmbientParticles = class ("AmbientParticles")
 
-local img = love.graphics.newImage("assets/particles.png")
+local img = love.graphics.newImage("assets/sprites/particles.png")
 
 function AmbientParticles:initialize(camera)
 	self.camera = camera

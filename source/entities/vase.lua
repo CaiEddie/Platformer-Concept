@@ -9,16 +9,16 @@ local Vase = class ('Vase', Entity)
 Vase.static.drawOrder = 2
 local width = 6
 local height = 14
-local img = love.graphics.newImage('assets/sprites/vase.png')
+local img = love.graphics.newImage('assets/sprites/vase/vase.png')
 
 local respawnTime = 3
 local jumpSpeed = -190
 
-local debris1 = love.graphics.newImage('assets/sprites/vasedebris1.png')
-local debris2 = love.graphics.newImage('assets/sprites/vasedebris2.png')
-local debris3 = love.graphics.newImage('assets/sprites/vasedebris3.png')
+local debris1 = love.graphics.newImage('assets/sprites/vase/vasedebris1.png')
+local debris2 = love.graphics.newImage('assets/sprites/vase/vasedebris2.png')
+local debris3 = love.graphics.newImage('assets/sprites/vase/vasedebris3.png')
 
-local eyesImg = love.graphics.newImage('assets/sprites/eyes.png')
+local eyesImg = love.graphics.newImage('assets/sprites/player/eyes.png')
 local eyesOx = 4
 local eyesOy = 2
 
@@ -50,6 +50,8 @@ end
 function Vase:filter(other)
 	if (self.properties.possessed and other.properties.player) or self.properties.isDying or other.properties.isDying or  other.properties.passable or other.properties.monster then 
 		return false 
+	elseif other.properties.jumpthru and self.y + self.h > other.y then 
+		return false
 	else 
 		return "slide" 
 	end

@@ -3,8 +3,8 @@ local Timer = require 'lib.timer'
 
 local Light = class ("Light")
 
-local imgCenter = love.graphics.newImage("assets/lightcenter.png")
-local imgEdge = love.graphics.newImage("assets/lightedge.png")
+local imgCenter = love.graphics.newImage("assets/sprites/lightcenter.png")
+local imgEdge = love.graphics.newImage("assets/sprites/lightedge.png")
 local buffer = love.graphics.newCanvas()
 
 function Light:initialize(map, x, y, shape, aSx, aSy, type)

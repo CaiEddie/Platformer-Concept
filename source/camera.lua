@@ -4,8 +4,6 @@ local AmbientParticles = require 'lib.ambientparticles'
 
 local Camera = class("Camera")
 
-local light = love.graphics.newImage('assets/light.png')
-
 function Camera:initialize(map, x, y, w, h)
 	self.map = map
 	self.x = x 

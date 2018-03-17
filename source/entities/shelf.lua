@@ -9,15 +9,15 @@ local Shelf = class ('Shelf', Entity)
 Shelf.static.drawOrder = 1
 local width = 24
 local height = 40
-local img3 = love.graphics.newImage('assets/sprites/shelfright.png')
-local img2 = love.graphics.newImage('assets/sprites/shelfleft.png')
-local img 	 = love.graphics.newImage('assets/sprites/shelf.png')
+local img3 = love.graphics.newImage('assets/sprites/shelf/shelfright.png')
+local img2 = love.graphics.newImage('assets/sprites/shelf/shelfleft.png')
+local img 	 = love.graphics.newImage('assets/sprites/shelf/shelf.png')
 
-local debris1 = love.graphics.newImage('assets/sprites/shelfdebris1.png')
-local debris2 = love.graphics.newImage('assets/sprites/shelfdebris2.png')
-local debris3 = love.graphics.newImage('assets/sprites/shelfdebris3.png')
+local debris1 = love.graphics.newImage('assets/sprites/shelf/shelfdebris1.png')
+local debris2 = love.graphics.newImage('assets/sprites/shelf/shelfdebris2.png')
+local debris3 = love.graphics.newImage('assets/sprites/shelf/shelfdebris3.png')
 
-local eyesImg = love.graphics.newImage('assets/sprites/eyes.png')
+local eyesImg = love.graphics.newImage('assets/sprites/player/eyes.png')
 local eyesOx = 4
 local eyesOy = 2
 
@@ -53,6 +53,8 @@ function Shelf:filter(other)
 		return false 
 	elseif other.properties.passable then
 		return "cross"
+	elseif other.properties.jumpthru and self.y + self.h > other.y then 
+		return false
 	else
 		return "slide" 
 	end
