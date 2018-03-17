@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.2",
+  tiledversion = "1.1.3",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 96,
@@ -121,44 +121,200 @@ return {
           },
           animation = {
             {
+              tileid = 2,
+              duration = 700
+            },
+            {
               tileid = 0,
-              duration = 500
+              duration = 25
             },
             {
               tileid = 1,
-              duration = 100
+              duration = 12
             },
             {
               tileid = 0,
+              duration = 25
+            },
+            {
+              tileid = 2,
+              duration = 1000
+            },
+            {
+              tileid = 0,
+              duration = 25
+            },
+            {
+              tileid = 1,
+              duration = 12
+            },
+            {
+              tileid = 0,
+              duration = 25
+            },
+            {
+              tileid = 1,
+              duration = 12
+            },
+            {
+              tileid = 0,
+              duration = 20
+            },
+            {
+              tileid = 1,
+              duration = 5
+            },
+            {
+              tileid = 0,
+              duration = 20
+            },
+            {
+              tileid = 1,
+              duration = 5
+            },
+            {
+              tileid = 0,
+              duration = 20
+            },
+            {
+              tileid = 1,
+              duration = 2
+            },
+            {
+              tileid = 0,
+              duration = 20
+            },
+            {
+              tileid = 1,
+              duration = 2
+            },
+            {
+              tileid = 0,
+              duration = 20
+            },
+            {
+              tileid = 1,
+              duration = 2
+            },
+            {
+              tileid = 0,
+              duration = 20
+            },
+            {
+              tileid = 1,
+              duration = 2
+            },
+            {
+              tileid = 0,
+              duration = 20
+            },
+            {
+              tileid = 1,
+              duration = 2
+            },
+            {
+              tileid = 0,
+              duration = 600
+            },
+            {
+              tileid = 2,
+              duration = 600
+            },
+            {
+              tileid = 0,
+              duration = 50
+            },
+            {
+              tileid = 1,
+              duration = 5
+            },
+            {
+              tileid = 0,
+              duration = 20
+            },
+            {
+              tileid = 1,
+              duration = 5
+            },
+            {
+              tileid = 0,
+              duration = 100
+            },
+            {
+              tileid = 2,
+              duration = 1200
+            },
+            {
+              tileid = 0,
+              duration = 25
+            },
+            {
+              tileid = 1,
+              duration = 12
+            },
+            {
+              tileid = 0,
+              duration = 25
+            },
+            {
+              tileid = 2,
               duration = 400
             },
             {
-              tileid = 2,
-              duration = 200
-            },
-            {
               tileid = 0,
-              duration = 100
-            },
-            {
-              tileid = 2,
-              duration = 200
+              duration = 20
             },
             {
               tileid = 1,
-              duration = 100
-            },
-            {
-              tileid = 3,
-              duration = 200
-            },
-            {
-              tileid = 4,
-              duration = 100
+              duration = 10
             },
             {
               tileid = 0,
-              duration = 9000
+              duration = 20
+            },
+            {
+              tileid = 1,
+              duration = 10
+            },
+            {
+              tileid = 0,
+              duration = 20
+            },
+            {
+              tileid = 0,
+              duration = 19
+            },
+            {
+              tileid = 1,
+              duration = 4
+            },
+            {
+              tileid = 0,
+              duration = 19
+            },
+            {
+              tileid = 1,
+              duration = 4
+            },
+            {
+              tileid = 0,
+              duration = 19
+            },
+            {
+              tileid = 1,
+              duration = 4
+            },
+            {
+              tileid = 0,
+              duration = 19
+            },
+            {
+              tileid = 1,
+              duration = 4
+            },
+            {
+              tileid = 0,
+              duration = 2000
             }
           }
         }
