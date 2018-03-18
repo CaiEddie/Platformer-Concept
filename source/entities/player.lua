@@ -141,11 +141,11 @@ function Player:keyreleased(key)
 end
 
 function Player:filter(other)
-	if self.properties.isDying or other.properties.isDying then
+	if self.properties.isDying or other.properties.isDying or (other.properties.possessable and not other.properties.shelf) then
 	 	return false
-	elseif other.properties.passable or other.properties.playerpassable then 
+	elseif other.properties.passable or other.properties.playerpassable  then 
 		return 'cross'
-	elseif other.properties.jumpthru and self.y + self.h > other.y then 
+	elseif (other.properties.jumpthru or other.properties.shelf) and self.y + self.h > other.y then 
 		return false
 	else
 		return 'slide'

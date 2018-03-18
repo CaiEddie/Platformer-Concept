@@ -49,7 +49,7 @@ function Shelf:initialize(map, world, x, y)
 end
 
 function Shelf:filter(other)
-	if  other.properties.player or other.properties.isDying or other.properties.monster then 
+	if  other.properties.player or other.properties.isDying or other.properties.player then 
 		return false 
 	elseif other.properties.passable then
 		return "cross"

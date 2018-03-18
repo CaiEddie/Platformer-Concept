@@ -48,7 +48,7 @@ function Vase:initialize(map, world, x, y)
 end
 
 function Vase:filter(other)
-	if (self.properties.possessed and other.properties.player) or self.properties.isDying or other.properties.isDying or  other.properties.passable or other.properties.monster then 
+	if (self.properties.possessed and other.properties.player) or self.properties.isDying or other.properties.isDying or  other.properties.passable or other.properties.player then 
 		return false 
 	elseif other.properties.jumpthru and self.y + self.h > other.y then 
 		return false
