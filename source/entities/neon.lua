@@ -7,11 +7,17 @@ local Timer = require 'lib.timer'
 local Neon = class('Neon', Entity)
 Neon:include(Stateful)
 
-local img = love.graphics.newImage('assets/sprites/neon/neon.png')
 local particleimg = love.graphics.newImage('assets/sprites/neon/particles.png')
-local w, h = 64, 16
 
 function Neon:initialize(map, world, x, y, properties)
+	
+	local w, h
+	if properties.type then 
+		self.img = love.graphics.newImage('assets/sprites/neon/'..properties.type..'.png')
+		w = self.img:getWidth()
+		h = self.img:getHeight()/3
+	end
+
   Entity.initialize(self, map, world, x, y, w, h)
   self.drawOrder = math.random(10, 900)
   self.map = map
@@ -25,7 +31,9 @@ function Neon:initialize(map, world, x, y, properties)
 	self.PS:setParticleLifetime( 0.1, 0.5)
 
 
-	local grid = anim8.newGrid(self.w, self.h, img:getWidth(), img:getHeight())
+
+
+	local grid = anim8.newGrid(self.w, self.h, self.img:getWidth(), self.img:getHeight())
 	self.anim = anim8.newAnimation(grid(1, '1-3', 1,1), 0.05, "pauseAtEnd")
 	self.timer = Timer()
 	self.timer:every({0.1, 5}, function() 
@@ -48,7 +56,7 @@ end
 
 function Neon:draw()
   if self.properties.isDead then return false end
-  self.anim:draw(img, self.x, self.y, 0, 1, 1, 0, 0)
+  self.anim:draw(self.img, self.x, self.y, 0, 1, 1, 0, 0)
  	love.graphics.draw(self.PS, 0, 0)
 end
 

@@ -400,12 +400,6 @@ function Dash:enteredState()
 
 
 		if not (self.leftKey or self.rightKey) or (self.leftKey and self.rightKey) then
-			if self.ground and self.ground.properties.possessable then 
-				self.possessedEntity = self.ground
-				self:gotoState("Possess")
-				return true
-			end
-
 			self.timer:after(noDashTime, function() if not self.possess then self:gotoState(nil) end  end)
 		else 
 			self:checkTarget()

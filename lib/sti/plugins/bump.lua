@@ -83,6 +83,10 @@ return {
 											properties = layer.properties
 										}
 
+										for i, v in pairs(obj.properties) do 
+											table.insert(t.properties, v)
+										end
+
 										world:add(t, t.x, t.y, t.width, t.height)
 										table.insert(collidables, t)
 									end

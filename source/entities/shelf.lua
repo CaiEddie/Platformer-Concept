@@ -53,8 +53,8 @@ function Shelf:filter(other)
 		return false 
 	elseif other.properties.passable then
 		return "cross"
-	elseif other.properties.jumpthru and self.y + self.h > other.y then 
-		return false
+	elseif other.properties.jumpthru then 
+		return "slide"
 	else
 		return "slide" 
 	end
@@ -197,7 +197,6 @@ function Shelf:possessedKeyPressed(player, key)
 		player.dashTargetX = player.x
 
 		if not (player.leftKey or player.rightKey) or (player.leftKey and player.rightKey)then 
-		 	player.y = player.y - 38
 			player.x = player.x -3
 		elseif player.leftKey then
 			player.x = player.x -16

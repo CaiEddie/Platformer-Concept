@@ -1,14 +1,14 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.3",
+  tiledversion = "1.1.2",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 96,
   height = 27,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 160,
+  nextobjectid = 164,
   properties = {
     ["A"] = true
   },
@@ -981,7 +981,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["switch"] = "A"
+            ["switch"] = "A",
+            ["type"] = "neon"
           }
         },
         {
@@ -1017,6 +1018,54 @@ return {
           },
           properties = {
             ["switch"] = "A"
+          }
+        },
+        {
+          id = 161,
+          name = "Neon",
+          type = "",
+          shape = "rectangle",
+          x = 376,
+          y = 88,
+          width = 32,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["switch"] = "A",
+            ["type"] = "short"
+          }
+        },
+        {
+          id = 162,
+          name = "Neon",
+          type = "",
+          shape = "rectangle",
+          x = 232,
+          y = 72,
+          width = 128,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["switch"] = "A",
+            ["type"] = "long"
+          }
+        },
+        {
+          id = 163,
+          name = "Neon",
+          type = "",
+          shape = "rectangle",
+          x = 184,
+          y = 48,
+          width = 16,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["switch"] = "A",
+            ["type"] = "vertical"
           }
         }
       }
