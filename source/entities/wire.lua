@@ -22,7 +22,7 @@ function Wire:update(dt)
 	if not self.map.level.properties[self.properties.switch] then 
 		self.color = {103,114,169,255}
 	else 
-		self.color = {255,255,255,255}
+		self.color = {67,119,50,255}
 	end
 end
 
