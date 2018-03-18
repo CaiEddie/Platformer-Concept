@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="96" height="27" tilewidth="8" tileheight="8" infinite="0" nextobjectid="145">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="96" height="27" tilewidth="8" tileheight="8" infinite="0" nextobjectid="148">
  <properties>
   <property name="A" type="bool" value="true"/>
  </properties>
@@ -250,7 +250,7 @@
   </properties>
   <object id="141" x="537" y="67" width="69" height="23"/>
  </objectgroup>
- <objectgroup name="Object Layer 1" visible="0">
+ <objectgroup name="Object Layer 1">
   <object id="1" name="Player" x="376" y="168" width="8" height="16">
    <properties>
     <property name="location" value="testroom"/>

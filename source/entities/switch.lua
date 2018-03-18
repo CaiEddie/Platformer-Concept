@@ -8,6 +8,7 @@ local imgoff = love.graphics.newImage('assets/sprites/switch/switchoff.png')
 local width = 8 
 local height = 16
 
+local jumpSpeed = -160
 
 local Switch = class ('LevelChange', Entity)
 Switch.static.drawOrder = 2
@@ -56,39 +57,38 @@ end
 
 function Switch:possessedKeyPressed(player, key)
 
-	if key == 'x' then
+	if key == 'x' or key == 'c' then
 
-		if not (player.leftKey or player.rightKey) or (player.leftKey and player.rightKey)then 
-		 	player.y = player.y - 18
-			player.x = player.x +1
-		end
+		if  key == 'x' and (player.leftKey or player.rightKey) and not (player.leftKey and player.rightKey) then 
 			self.properties.possessed = false
 			self.properties.possessable = false 
 			self.properties.playerpassable = true
 			player.timer:after(0.2, function() self.properties.possessable = true self.properties.playerpassable = false end )
 			player:gotoState("Dash") 
+		else 
+
+			if self.on then 
+				self.map.level.properties[self.properties.switch] = false 
+				self.on = false
+				player.y = player.y+18
+				player.x = player.x+1
+				player.dy = -jumpSpeed
+				player:gotoState(nil) 
+				player.charge = 1
+			else 
+				self.map.level.properties[self.properties.switch] = true
+				self.on = true 
+				player.y = player.y-18
+				player.x = player.x+1
+				player.dy = jumpSpeed
+				player:gotoState(nil) 
+				player.charge = 1
+			end
+		end
+
 		self.map.camera:screenShake(0.1, 2, 0)
 	end
 
-	if key == 'up' then 
-		self.map.level.properties[self.properties.switch] = true
-		self.on = true 
-	end 
-
-	if key == 'down' then 
-		self.map.level.properties[self.properties.switch] = false 
-		self.on = false
-	end
-
-	if key == 'c' then 
-		if self.on then 
-			self.map.level.properties[self.properties.switch] = false 
-			self.on = false
-		else 
-			self.map.level.properties[self.properties.switch] = true
-			self.on = true 
-		end
-	end
 
 	player.timer:tween(0.1, self, {Ox = self.Ox-1}, "in-out-cubic", function() player.timer:tween(0.1, self, {Ox = self.Ox+2}, "in-out-cubic", function() player.timer:tween(0.1, self, {Ox = self.Ox-1}, "in-out-cubic")   end)   end)
 

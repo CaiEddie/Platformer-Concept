@@ -8,7 +8,7 @@ return {
   height = 27,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 145,
+  nextobjectid = 148,
   properties = {
     ["A"] = true
   },
@@ -815,7 +815,7 @@ return {
     {
       type = "objectgroup",
       name = "Object Layer 1",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
