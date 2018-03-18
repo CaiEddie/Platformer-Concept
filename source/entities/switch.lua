@@ -80,6 +80,16 @@ function Switch:possessedKeyPressed(player, key)
 		self.on = false
 	end
 
+	if key == 'c' then 
+		if self.on then 
+			self.map.level.properties[self.properties.switch] = false 
+			self.on = false
+		else 
+			self.map.level.properties[self.properties.switch] = true
+			self.on = true 
+		end
+	end
+
 	player.timer:tween(0.1, self, {Ox = self.Ox-1}, "in-out-cubic", function() player.timer:tween(0.1, self, {Ox = self.Ox+2}, "in-out-cubic", function() player.timer:tween(0.1, self, {Ox = self.Ox-1}, "in-out-cubic")   end)   end)
 
 end

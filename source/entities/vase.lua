@@ -149,6 +149,9 @@ end
 function Vase:die()
 	if self.properties.isDying then return false end
 
+	self.x = self.originalX 
+	self.y = self.originalY 
+	self.world:update(self, self.x, self.y)
 
 	if self.properties.possessed then 
 			self.map.player.dx = 0
