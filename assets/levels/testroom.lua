@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.2",
+  tiledversion = "1.1.3",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 96,
@@ -36,47 +36,6 @@ return {
       terrains = {},
       tilecount = 68,
       tiles = {
-        {
-          id = 0,
-          animation = {
-            {
-              tileid = 58,
-              duration = 100
-            },
-            {
-              tileid = 62,
-              duration = 25
-            },
-            {
-              tileid = 58,
-              duration = 400
-            },
-            {
-              tileid = 66,
-              duration = 500
-            },
-            {
-              tileid = 58,
-              duration = 50
-            },
-            {
-              tileid = 66,
-              duration = 200
-            },
-            {
-              tileid = 62,
-              duration = 25
-            },
-            {
-              tileid = 66,
-              duration = 200
-            },
-            {
-              tileid = 58,
-              duration = 300
-            }
-          }
-        },
         {
           id = 4,
           properties = {
@@ -129,6 +88,170 @@ return {
                 visible = true,
                 properties = {}
               }
+            }
+          }
+        },
+        {
+          id = 56,
+          animation = {
+            {
+              tileid = 56,
+              duration = 100
+            },
+            {
+              tileid = 60,
+              duration = 25
+            },
+            {
+              tileid = 56,
+              duration = 400
+            },
+            {
+              tileid = 64,
+              duration = 500
+            },
+            {
+              tileid = 56,
+              duration = 50
+            },
+            {
+              tileid = 64,
+              duration = 200
+            },
+            {
+              tileid = 60,
+              duration = 25
+            },
+            {
+              tileid = 64,
+              duration = 200
+            },
+            {
+              tileid = 56,
+              duration = 300
+            }
+          }
+        },
+        {
+          id = 57,
+          animation = {
+            {
+              tileid = 57,
+              duration = 100
+            },
+            {
+              tileid = 61,
+              duration = 25
+            },
+            {
+              tileid = 57,
+              duration = 400
+            },
+            {
+              tileid = 65,
+              duration = 500
+            },
+            {
+              tileid = 57,
+              duration = 50
+            },
+            {
+              tileid = 64,
+              duration = 200
+            },
+            {
+              tileid = 61,
+              duration = 25
+            },
+            {
+              tileid = 65,
+              duration = 200
+            },
+            {
+              tileid = 57,
+              duration = 300
+            }
+          }
+        },
+        {
+          id = 58,
+          animation = {
+            {
+              tileid = 58,
+              duration = 100
+            },
+            {
+              tileid = 62,
+              duration = 25
+            },
+            {
+              tileid = 58,
+              duration = 400
+            },
+            {
+              tileid = 66,
+              duration = 500
+            },
+            {
+              tileid = 58,
+              duration = 50
+            },
+            {
+              tileid = 66,
+              duration = 200
+            },
+            {
+              tileid = 62,
+              duration = 25
+            },
+            {
+              tileid = 66,
+              duration = 200
+            },
+            {
+              tileid = 58,
+              duration = 300
+            }
+          }
+        },
+        {
+          id = 59,
+          animation = {
+            {
+              tileid = 59,
+              duration = 100
+            },
+            {
+              tileid = 63,
+              duration = 25
+            },
+            {
+              tileid = 59,
+              duration = 400
+            },
+            {
+              tileid = 64,
+              duration = 500
+            },
+            {
+              tileid = 59,
+              duration = 50
+            },
+            {
+              tileid = 67,
+              duration = 200
+            },
+            {
+              tileid = 63,
+              duration = 25
+            },
+            {
+              tileid = 67,
+              duration = 200
+            },
+            {
+              tileid = 59,
+              duration = 300
             }
           }
         }
@@ -856,7 +979,7 @@ return {
     {
       type = "objectgroup",
       name = "Object Layer 1",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
