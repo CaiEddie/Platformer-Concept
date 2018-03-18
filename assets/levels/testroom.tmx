@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.3" orientation="orthogonal" renderorder="right-down" width="96" height="27" tilewidth="8" tileheight="8" infinite="0" nextobjectid="143">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="96" height="27" tilewidth="8" tileheight="8" infinite="0" nextobjectid="145">
+ <properties>
+  <property name="A" type="bool" value="true"/>
+ </properties>
  <tileset firstgid="1" name="spritesheet0" tilewidth="8" tileheight="8" tilecount="56" columns="4">
   <image source="spritesheets/spritesheet0.png" width="32" height="112"/>
   <tile id="4">
@@ -260,5 +263,15 @@
   <object id="20" name="Vase" x="656" y="96" width="8" height="16"/>
   <object id="75" name="Vase" x="336" y="168" width="8" height="16"/>
   <object id="142" name="Lamp" x="176" y="144" width="8" height="8"/>
+  <object id="143" name="Neon" x="448" y="104" width="64" height="16">
+   <properties>
+    <property name="switch" value="A"/>
+   </properties>
+  </object>
+  <object id="144" name="Switch" x="408" y="136" width="8" height="8">
+   <properties>
+    <property name="switch" value="A"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

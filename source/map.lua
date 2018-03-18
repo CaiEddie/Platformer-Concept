@@ -11,7 +11,8 @@ local entityList = {
 	Shelf = require 'source.entities.shelf',
 	LevelChange = require 'source.entities.levelchange',
 	Switch = require 'source.entities.switch',
-	Lamp = require 'source.entities.lamp'
+	Lamp = require 'source.entities.lamp',
+	Neon = require 'source.entities.neon'
 }
 
 local cameraTween = 12
@@ -42,8 +43,6 @@ function Map:loadLevel(level)
 	self.world = nil
 	self.world = bump.newWorld()
 	self.level:bump_init(self.world)
-
-	print(self.levelName)
 
 	for k, obj in pairs(self.level.objects) do
 		if obj.name == "Player" then
@@ -82,6 +81,13 @@ function Map:keypressed(key)
 		self:reset()
 	end
 	self.player:keypressed(key)
+
+	if key == 't' then 
+		self.level.properties.A = false 
+	end
+	if key == 'y' then 
+		self.level.properties.A = true 
+	end
 end
 
 function Map:keyreleased(key)

@@ -380,8 +380,6 @@ function Dash:enteredState()
 	self.properties.passable = true
 	self.map.camera:screenShake(0.1, 2, 0)
 
-	self.y = self.y-1
-
 			local dx, dy = 0, 0
 			self.dashTargetX = self.x 
 

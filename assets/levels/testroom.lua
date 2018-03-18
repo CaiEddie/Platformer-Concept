@@ -1,15 +1,17 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.3",
+  tiledversion = "1.1.2",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 96,
   height = 27,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 143,
-  properties = {},
+  nextobjectid = 145,
+  properties = {
+    ["A"] = true
+  },
   tilesets = {
     {
       name = "spritesheet0",
@@ -925,6 +927,36 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 143,
+          name = "Neon",
+          type = "",
+          shape = "rectangle",
+          x = 448,
+          y = 104,
+          width = 64,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["switch"] = "A"
+          }
+        },
+        {
+          id = 144,
+          name = "Switch",
+          type = "",
+          shape = "rectangle",
+          x = 408,
+          y = 136,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["switch"] = "A"
+          }
         }
       }
     }
