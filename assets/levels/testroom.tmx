@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="96" height="27" tilewidth="8" tileheight="8" infinite="0" nextobjectid="157">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="96" height="27" tilewidth="8" tileheight="8" infinite="0" nextobjectid="160">
  <properties>
   <property name="A" type="bool" value="true"/>
  </properties>
@@ -273,8 +273,8 @@
     <property name="switch" value="A"/>
    </properties>
   </object>
-  <object id="156" name="Wire" x="424" y="136">
-   <polyline points="0,0 16,-8 24,-16"/>
+  <object id="159" name="Wire" x="424" y="136">
+   <polyline points="0,0 16,0 24,-16"/>
   </object>
  </objectgroup>
 </map>
