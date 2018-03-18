@@ -815,7 +815,7 @@ return {
     {
       type = "objectgroup",
       name = "Object Layer 1",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
