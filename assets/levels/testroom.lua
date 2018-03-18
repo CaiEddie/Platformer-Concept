@@ -948,10 +948,10 @@ return {
           name = "Switch",
           type = "",
           shape = "rectangle",
-          x = 408,
+          x = 416,
           y = 136,
-          width = 16,
-          height = 24,
+          width = 8,
+          height = 16,
           rotation = 0,
           visible = true,
           properties = {
@@ -974,7 +974,9 @@ return {
             { x = 16, y = 0 },
             { x = 24, y = -16 }
           },
-          properties = {}
+          properties = {
+            ["switch"] = "A"
+          }
         }
       }
     }

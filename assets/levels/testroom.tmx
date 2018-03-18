@@ -268,12 +268,15 @@
     <property name="switch" value="A"/>
    </properties>
   </object>
-  <object id="144" name="Switch" x="408" y="136" width="16" height="24">
+  <object id="144" name="Switch" x="416" y="136" width="8" height="16">
    <properties>
     <property name="switch" value="A"/>
    </properties>
   </object>
   <object id="159" name="Wire" x="424" y="136">
+   <properties>
+    <property name="switch" value="A"/>
+   </properties>
    <polyline points="0,0 16,0 24,-16"/>
   </object>
  </objectgroup>
