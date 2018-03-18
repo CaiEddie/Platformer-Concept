@@ -12,16 +12,23 @@ function Wire:initialize(map, world, x, y, properties, width, height, polyline)
 	self.curve = love.math.newBezierCurve(points)
 	self.properties = properties
   table.insert(self.map.entities, self)
+ 	self.color = {103,114,169,255}
 end
 
 function Wire:update(dt)
 	local time = love.timer.getTime()
 	local x, y = self.curve:getControlPoint(2)
 	self.curve:setControlPoint(2, x, y + 0.05*math.sin(time))
+	if not self.map.level.properties[self.properties.switch] then 
+		self.color = {103,114,169,255}
+	else 
+		self.color = {255,255,255,255}
+	end
 end
 
 function Wire:draw(debug)
-	love.graphics.setColor(103,114,169,255)
+
+	love.graphics.setColor(self.color)
 	love.graphics.setLineStyle('rough')
 	love.graphics.setLineWidth( 1.0 )
 	love.graphics.line(self.curve:render(5))
