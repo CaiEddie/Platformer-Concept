@@ -12,7 +12,8 @@ local entityList = {
 	LevelChange = require 'source.entities.levelchange',
 	Switch = require 'source.entities.switch',
 	Lamp = require 'source.entities.lamp',
-	Neon = require 'source.entities.neon'
+	Neon = require 'source.entities.neon',
+	Wire = require 'source.entities.wire'
 }
 
 local cameraTween = 12
@@ -53,7 +54,7 @@ function Map:loadLevel(level)
 		else
 			if not self.conditions[obj.properties.condition] then 
 				if obj.name ~= '' then
-					entityList[obj.name]:new(self, self.world, obj.x, obj.y, obj.properties, obj.width, obj.height)
+					entityList[obj.name]:new(self, self.world, obj.x, obj.y, obj.properties, obj.width, obj.height, obj.polyline)
 				end
 			end
 		end

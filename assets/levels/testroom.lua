@@ -8,7 +8,7 @@ return {
   height = 27,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 148,
+  nextobjectid = 156,
   properties = {
     ["A"] = true
   },
@@ -950,13 +950,30 @@ return {
           shape = "rectangle",
           x = 408,
           y = 136,
-          width = 8,
-          height = 8,
+          width = 16,
+          height = 24,
           rotation = 0,
           visible = true,
           properties = {
             ["switch"] = "A"
           }
+        },
+        {
+          id = 155,
+          name = "Wire",
+          type = "",
+          shape = "polyline",
+          x = 424,
+          y = 136,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 24, y = -16 }
+          },
+          properties = {}
         }
       }
     }

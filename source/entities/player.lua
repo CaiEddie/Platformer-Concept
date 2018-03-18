@@ -449,10 +449,12 @@ function Dash:die()
 end
 
 function Dash:filter(other)
-	if other.properties.isDying or other.properties.passable or other.properties.playerpassable then 
+	if other.properties.isDying  or other.properties.playerpassable then 
 		return false 
 	elseif other.properties.possessable or other.properties.shelf then
 		return "cross"
+	elseif other.properties.passable then 
+		return false
 	elseif other.properties.jumpthru and self.y + self.h > other.y then 
 		return false
 	else
