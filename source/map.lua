@@ -31,12 +31,12 @@ end
 
 function Map:reset()
 	self.game:log("Map has been reset")
-	self:loadLevel(self.levelName or "testroom")
+	self:loadLevel(self.levelName or "level1")
 end
 
 function Map:loadLevel(level)
-	local location = self.location or self.levelName or "testroom"
-	local locationBackup = self.levelName or "testroom"
+	local location = self.location or self.levelName or "level1"
+	local locationBackup = self.levelName or "level1"
 	self.levelName = level
 	self.level = sti("assets/levels/"..level..".lua", {"bump"})
 	self.entities = {}

@@ -45,9 +45,6 @@ function Neon:initialize(map, world, x, y, properties)
 		self.PS:emit(10)
 		end )
 
-	if not self.map.level.properties[self.properties.switch] then 
-		self:gotoState('Off')
-	end
 
 
 end
@@ -64,9 +61,16 @@ function Neon:onWallLand()
 end
 
 function Neon:update(dt)
-	if not self.map.level.properties[self.properties.switch] then 
-		self:gotoState('Off')
+	if not self.properties.inversed then 
+		if not self.map.level.properties[self.properties.switch] then 
+			self:gotoState('Off')
+		end
+	else
+		if self.map.level.properties[self.properties.switch] then 
+			self:gotoState('Off')
+		end
 	end
+
 	self.anim:update(dt)
 	self.timer:update(dt)
 	self.PS:update(dt)
@@ -89,12 +93,23 @@ function Off:enteredState()
 end
 
 function Off:update(dt)
-	if self.map.level.properties[self.properties.switch] then 
-		local items, len = self.world:queryRect(self.x, self.y, self.w, self.h)
-		if len < 2 then 
-			self:gotoState(nil)
+
+	if not self.properties.inversed then 
+		if self.map.level.properties[self.properties.switch] then 
+			local items, len = self.world:queryRect(self.x, self.y, self.w, self.h)
+			if len < 2 then 
+				self:gotoState(nil)
+			end
+		end
+	else 
+		if not self.map.level.properties[self.properties.switch] then 
+			local items, len = self.world:queryRect(self.x, self.y, self.w, self.h)
+			if len < 2 then 
+				self:gotoState(nil)
+			end
 		end
 	end
+
 	self.PS:update(dt)
 end
 

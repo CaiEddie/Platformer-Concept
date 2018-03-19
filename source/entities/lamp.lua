@@ -16,7 +16,7 @@ function Lamp:initialize(map, world, x, y)
 	self.x = x 
 	self.y = y 
 	self.properties ={passable = true}
-	self.light = Light:new(self.map, self.x, self.y,'circle', 1, 1, "red")
+	self.light = Light:new(self.map, self.x, self.y, 'circle', 0.5, 0.5, "normal")
 	self.counter = delay 
 end
 
