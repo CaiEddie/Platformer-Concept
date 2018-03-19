@@ -3,6 +3,7 @@ local sti = require 'lib.sti'
 local Camera = require 'source.camera' 
 local Timer = require 'lib.timer'
 
+local debugroom = 'dashroom1'
 
 local entityList = {
 	Player = require 'source.entities.player',
@@ -31,12 +32,12 @@ end
 
 function Map:reset()
 	self.game:log("Map has been reset")
-	self:loadLevel(self.levelName or "testroom")
+	self:loadLevel(self.levelName or debugroom or "testroom")
 end
 
 function Map:loadLevel(level)
-	local location = self.location or self.levelName or "testroom"
-	local locationBackup = self.levelName or "testroom"
+	local location = self.location or self.levelName or debugroom or "testroom"
+	local locationBackup = self.levelName or debugroom or "testroom"
 	self.levelName = level
 	self.level = sti("assets/levels/"..level..".lua", {"bump"})
 	self.entities = {}
