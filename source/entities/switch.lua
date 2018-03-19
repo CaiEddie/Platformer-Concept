@@ -9,7 +9,7 @@ local imgoff = love.graphics.newImage('assets/sprites/switch/switchoff.png')
 local width = 13
 local height = 22
 
-local jumpSpeed = -220
+local jumpSpeed = -200
 
 local Switch = class ('LevelChange', Entity)
 Switch.static.drawOrder = 2
