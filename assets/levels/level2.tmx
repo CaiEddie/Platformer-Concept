@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="48" height="27" tilewidth="8" tileheight="8" infinite="0" nextobjectid="9">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="48" height="27" tilewidth="8" tileheight="8" infinite="0" nextobjectid="10">
  <tileset firstgid="1" name="spritesheet0" tilewidth="8" tileheight="8" tilecount="68" columns="4">
   <image source="spritesheets/spritesheet0.png" width="32" height="136"/>
   <tile id="4">
@@ -227,6 +227,11 @@
   <object id="8" name="LevelChange" x="0" y="24" width="8" height="32">
    <properties>
     <property name="level" value="level1"/>
+   </properties>
+  </object>
+  <object id="9" name="Player" x="352" y="160" width="8" height="16">
+   <properties>
+    <property name="location" value="level3"/>
    </properties>
   </object>
  </objectgroup>

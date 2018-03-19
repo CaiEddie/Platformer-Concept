@@ -8,7 +8,7 @@ return {
   height = 27,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 9,
+  nextobjectid = 10,
   properties = {},
   tilesets = {
     {
@@ -655,6 +655,21 @@ return {
           visible = true,
           properties = {
             ["level"] = "level1"
+          }
+        },
+        {
+          id = 9,
+          name = "Player",
+          type = "",
+          shape = "rectangle",
+          x = 352,
+          y = 160,
+          width = 8,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["location"] = "level3"
           }
         }
       }

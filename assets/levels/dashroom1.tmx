@@ -415,7 +415,7 @@
   </object>
   <object id="59" name="Player" x="16" y="144" width="8" height="16">
    <properties>
-    <property name="location" value="level1"/>
+    <property name="location" value="level3"/>
    </properties>
   </object>
   <object id="60" name="LevelChange" x="375" y="16" width="9" height="48">

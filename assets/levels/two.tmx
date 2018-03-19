@@ -207,7 +207,7 @@
  <objectgroup name="Object Layer 1">
   <object id="38" name="LevelChange" x="376" y="56" width="16" height="48">
    <properties>
-    <property name="level" value="testroom"/>
+    <property name="level" value="level1"/>
    </properties>
   </object>
   <object id="61" name="Player" x="360" y="88" width="8" height="16">

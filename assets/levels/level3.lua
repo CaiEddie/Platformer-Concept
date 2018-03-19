@@ -8,7 +8,7 @@ return {
   height = 27,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 9,
+  nextobjectid = 10,
   properties = {},
   tilesets = {
     {
@@ -609,7 +609,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["level"] = "testroom"
+            ["level"] = "dashroom1"
           }
         },
         {
@@ -655,6 +655,21 @@ return {
           visible = true,
           properties = {
             ["level"] = "level2"
+          }
+        },
+        {
+          id = 9,
+          name = "Player",
+          type = "",
+          shape = "rectangle",
+          x = 344,
+          y = 160,
+          width = 8,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["location"] = "dashroom1"
           }
         }
       }

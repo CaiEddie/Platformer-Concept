@@ -8,7 +8,7 @@ return {
   height = 27,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 188,
+  nextobjectid = 189,
   properties = {
     ["A"] = true,
     ["AlwaysTrue"] = true
@@ -1098,7 +1098,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["location"] = "two"
+            ["location"] = "dashroom1"
           }
         }
       }

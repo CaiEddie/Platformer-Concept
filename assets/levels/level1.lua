@@ -8,7 +8,7 @@ return {
   height = 27,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 3,
+  nextobjectid = 7,
   properties = {},
   tilesets = {
     {
@@ -358,7 +358,7 @@ return {
           name = "Player",
           type = "",
           shape = "rectangle",
-          x = 8,
+          x = 24,
           y = 40,
           width = 8,
           height = 16,
@@ -380,7 +380,52 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["level"] = "dashroom1"
+            ["level"] = "level2"
+          }
+        },
+        {
+          id = 3,
+          name = "Player",
+          type = "",
+          shape = "rectangle",
+          x = 24,
+          y = 40,
+          width = 8,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["location"] = "two"
+          }
+        },
+        {
+          id = 4,
+          name = "Player",
+          type = "",
+          shape = "rectangle",
+          x = 352,
+          y = 160,
+          width = 8,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["location"] = "level2"
+          }
+        },
+        {
+          id = 6,
+          name = "LevelChange",
+          type = "",
+          shape = "rectangle",
+          x = 8,
+          y = 16,
+          width = 16,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["level"] = "two"
           }
         }
       }

@@ -1219,7 +1219,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["location"] = "level1"
+            ["location"] = "level3"
           }
         },
         {

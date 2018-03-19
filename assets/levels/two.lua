@@ -663,7 +663,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["level"] = "testroom"
+            ["level"] = "level1"
           }
         },
         {
