@@ -154,17 +154,19 @@ end
 
 function Player:checkOnGround(ny, other, dt)
   if ny < 0  then 
-  	self:gotoState("OnGround") 
   	self.ground = other
+   	self:gotoState("OnGround") 
   end
 end
 
-function Player:checkOnWall(nx)
+function Player:checkOnWall(nx, other)
 	if nx < 0 then 
 		self.wallSide = "right" 
+		self.wall = other
 		self:gotoState("OnWall")
 	elseif nx > 0 then 
 		self.wallSide = "left"
+		self.wall = other
 		self:gotoState("OnWall")
 	end
 end
@@ -189,7 +191,7 @@ function Player:moveCollision(dt)
 			self:bounce(col.normal.x, col.normal.y, col.other.properties.bounciness)
 		
 			self:checkOnGround(col.normal.y, col.other, dt) 
-			self:checkOnWall(col.normal.x)
+			self:checkOnWall(col.normal.x, col.other)
 			
 
 		end
@@ -280,6 +282,10 @@ function OnGround:enteredState()
 	Dust:new(self.map, self.world, self.Gx, self.Gy)
 	self.timer:tween(0.1, self, {Sy = 0.6, Oy = self.Oy-4}, "in-out-cubic", function() self.timer:tween(0.1, self, {Sy = 1, Oy = self.Oy+4}, "in-out-cubic", function() end, 'sprite')  end, 'sprite')
 	self.dustParticles:emit(20, self.Gx, self.Gy + self.w)
+
+	if self.ground and self.ground.onLand then 
+		self.ground:onLand()
+	end
 end
 
 function OnGround:jump()
@@ -318,7 +324,9 @@ end
 local OnWall = Player:addState('OnWall')
 
 function OnWall:enteredState()
-
+	if self.wall and self.wall.onWallLand then 
+		self.wall:onWallLand()
+	end
 end
 
 function OnWall:applyGravity(dt)

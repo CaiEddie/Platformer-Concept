@@ -1,16 +1,17 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.3",
+  tiledversion = "1.1.2",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 96,
   height = 27,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 164,
+  nextobjectid = 174,
   properties = {
-    ["A"] = true
+    ["A"] = true,
+    ["AlwaysTrue"] = true
   },
   tilesets = {
     {
@@ -256,235 +257,6 @@ return {
           }
         }
       }
-    },
-    {
-      name = "dante",
-      firstgid = 69,
-      tilewidth = 72,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "spritesheets/dante.png",
-      imagewidth = 72,
-      imageheight = 160,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 72,
-        height = 32
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 5,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["glow"] = true
-          },
-          animation = {
-            {
-              tileid = 2,
-              duration = 700
-            },
-            {
-              tileid = 0,
-              duration = 25
-            },
-            {
-              tileid = 1,
-              duration = 12
-            },
-            {
-              tileid = 0,
-              duration = 25
-            },
-            {
-              tileid = 2,
-              duration = 1000
-            },
-            {
-              tileid = 0,
-              duration = 25
-            },
-            {
-              tileid = 1,
-              duration = 12
-            },
-            {
-              tileid = 0,
-              duration = 25
-            },
-            {
-              tileid = 1,
-              duration = 12
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 1,
-              duration = 5
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 1,
-              duration = 5
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 1,
-              duration = 2
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 1,
-              duration = 2
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 1,
-              duration = 2
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 1,
-              duration = 2
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 1,
-              duration = 2
-            },
-            {
-              tileid = 0,
-              duration = 600
-            },
-            {
-              tileid = 2,
-              duration = 600
-            },
-            {
-              tileid = 0,
-              duration = 50
-            },
-            {
-              tileid = 1,
-              duration = 5
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 1,
-              duration = 5
-            },
-            {
-              tileid = 0,
-              duration = 100
-            },
-            {
-              tileid = 2,
-              duration = 1200
-            },
-            {
-              tileid = 0,
-              duration = 25
-            },
-            {
-              tileid = 1,
-              duration = 12
-            },
-            {
-              tileid = 0,
-              duration = 25
-            },
-            {
-              tileid = 2,
-              duration = 400
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 1,
-              duration = 10
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 1,
-              duration = 10
-            },
-            {
-              tileid = 0,
-              duration = 20
-            },
-            {
-              tileid = 0,
-              duration = 19
-            },
-            {
-              tileid = 1,
-              duration = 4
-            },
-            {
-              tileid = 0,
-              duration = 19
-            },
-            {
-              tileid = 1,
-              duration = 4
-            },
-            {
-              tileid = 0,
-              duration = 19
-            },
-            {
-              tileid = 1,
-              duration = 4
-            },
-            {
-              tileid = 0,
-              duration = 19
-            },
-            {
-              tileid = 1,
-              duration = 4
-            },
-            {
-              tileid = 0,
-              duration = 2000
-            }
-          }
-        }
-      }
     }
   },
   layers = {
@@ -654,7 +426,7 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -794,9 +566,9 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 40,
+          x = 168,
           y = 184,
-          width = 696,
+          width = 568,
           height = 32,
           rotation = 0,
           visible = true,
@@ -905,6 +677,48 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 170,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 8,
+          y = 184,
+          width = 104,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "Col-damaging",
+      visible = false,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["collidable"] = true,
+        ["damaging"] = true,
+        ["shadows"] = true
+      },
+      objects = {
+        {
+          id = 172,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 86,
+          y = 187,
+          width = 104,
+          height = 29,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -951,35 +765,8 @@ return {
     },
     {
       type = "objectgroup",
-      name = "Col-only",
-      visible = false,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["collidable"] = true
-      },
-      objects = {
-        {
-          id = 141,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 537,
-          y = 67,
-          width = 69,
-          height = 23,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        }
-      }
-    },
-    {
-      type = "objectgroup",
       name = "Object Layer 1",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -1080,19 +867,6 @@ return {
           properties = {}
         },
         {
-          id = 142,
-          name = "Lamp",
-          type = "",
-          shape = "rectangle",
-          x = 176,
-          y = 144,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 143,
           name = "Neon",
           type = "",
@@ -1119,26 +893,6 @@ return {
           height = 16,
           rotation = 0,
           visible = true,
-          properties = {
-            ["switch"] = "A"
-          }
-        },
-        {
-          id = 159,
-          name = "Wire",
-          type = "",
-          shape = "polyline",
-          x = 424,
-          y = 136,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 16, y = 0 },
-            { x = 24, y = -16 }
-          },
           properties = {
             ["switch"] = "A"
           }
@@ -1189,6 +943,117 @@ return {
           properties = {
             ["switch"] = "A",
             ["type"] = "vertical"
+          }
+        },
+        {
+          id = 164,
+          name = "Wire",
+          type = "",
+          shape = "polyline",
+          x = 424,
+          y = 152,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 8, y = 8 },
+            { x = 24, y = -32 }
+          },
+          properties = {
+            ["switch"] = "A"
+          }
+        },
+        {
+          id = 165,
+          name = "Wire",
+          type = "",
+          shape = "polyline",
+          x = 408,
+          y = 104,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 16, y = 24 },
+            { x = 40, y = 16 }
+          },
+          properties = {
+            ["switch"] = "A"
+          }
+        },
+        {
+          id = 166,
+          name = "Wire",
+          type = "",
+          shape = "polyline",
+          x = 360,
+          y = 88,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 8, y = 40 },
+            { x = 16, y = 16 }
+          },
+          properties = {
+            ["switch"] = "A"
+          }
+        },
+        {
+          id = 167,
+          name = "Wire",
+          type = "",
+          shape = "polyline",
+          x = 200,
+          y = 88,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 16, y = 32 },
+            { x = 32, y = 0 }
+          },
+          properties = {
+            ["switch"] = "A"
+          }
+        },
+        {
+          id = 168,
+          name = "Sparks",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 187,
+          width = 56,
+          height = 1,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["damaging"] = true
+          }
+        },
+        {
+          id = 173,
+          name = "Neon",
+          type = "",
+          shape = "rectangle",
+          x = 547,
+          y = 58,
+          width = 69,
+          height = 23,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["switch"] = "AlwaysTrue",
+            ["type"] = "dante"
           }
         }
       }

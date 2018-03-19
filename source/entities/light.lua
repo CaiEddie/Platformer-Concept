@@ -25,6 +25,7 @@ function Light:update(dt)
 end
 
 function Light:drawEdge(canvas, debug)
+	if self.shape == circle then 
 		lg.setCanvas(buffer)
 		lg.clear(0,0,0)
 		lg.setBlendMode('multiply')
@@ -39,6 +40,7 @@ function Light:drawEdge(canvas, debug)
 		lg.setCanvas(canvas)
 		lg.setBlendMode('multiply')
 		lg.draw(buffer)
+	end
 end
 
 function Light:drawCenter(canvas, debug)
@@ -60,6 +62,21 @@ function Light:drawCenter(canvas, debug)
 		lg.draw(buffer)
 	end
 
+	if self.shape == 'rectangle' then 
+	lg.setCanvas(buffer)
+		lg.clear(0,0,0)
+		lg.setBlendMode('multiply')
+		lg.push()
+		lg.origin()
+		lg.setColor(255,255,255, 0)
+		love.graphics.rectangle('fill', self.x-self.Sx, self.y-self.Sy, self.Sx*2, self.Sy*2)
+		lg.pop()
+		lg.setColor(255,255,255, 255)
+		lg.setCanvas(canvas)
+		lg.setBlendMode('multiply')
+		lg.draw(buffer)
+	end
+
 end
 
 function Light:drawShadows()
@@ -72,9 +89,9 @@ local Gx, Gy = self.x, self.y
 		if item.properties.shadows then 
 
 			local N = item.y 
-			local S = item.y + item.height 
+			local S = item.y + (item.height or item.h)
 			local W = item.x 
-			local E = item.x + item.width  
+			local E = item.x + (item.width  or item.w)
 
 			local horizontal
 			local vertical

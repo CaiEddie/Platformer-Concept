@@ -13,7 +13,8 @@ local entityList = {
 	Switch = require 'source.entities.switch',
 	Lamp = require 'source.entities.lamp',
 	Neon = require 'source.entities.neon',
-	Wire = require 'source.entities.wire'
+	Wire = require 'source.entities.wire',
+	Sparks = require 'source.entities.sparks'
 }
 
 local cameraTween = 12

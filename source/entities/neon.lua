@@ -3,6 +3,7 @@ local Entity  = require 'source.entities.entity'
 local Stateful = require 'lib.stateful'
 local anim8 = require 'lib.anim8'
 local Timer = require 'lib.timer'
+local Light = require 'source.entities.light'
 
 local Neon = class('Neon', Entity)
 Neon:include(Stateful)
@@ -19,10 +20,13 @@ function Neon:initialize(map, world, x, y, properties)
 	end
 
   Entity.initialize(self, map, world, x, y, w, h)
-  self.drawOrder = math.random(10, 900)
+  self.drawOrder = 10
   self.map = map
   self.properties = properties
+  self.properties.shadows = true
 
+ 	self.Gx, self.Gy = self:getCenter()
+	self.light = Light:new(self.map, self.Gx+2, self.Gy+2, 'rectangle', w/2-4, h/2-4, "normal")
 
 	self.PS = love.graphics.newParticleSystem(particleimg, 50)
   self.PS:setAreaSpread( "uniform", 1, 1)
@@ -31,18 +35,27 @@ function Neon:initialize(map, world, x, y, properties)
 	self.PS:setParticleLifetime( 0.1, 0.5)
 
 
-
-
 	local grid = anim8.newGrid(self.w, self.h, self.img:getWidth(), self.img:getHeight())
 	self.anim = anim8.newAnimation(grid(1, '1-3', 1,1), 0.05, "pauseAtEnd")
 	self.timer = Timer()
-	self.timer:every({0.1, 5}, function() 
+	self.timer:every({0.1, 10}, function() 
 		self.anim:gotoFrame(1) 
 		self.anim:resume() 
 		self.PS:setPosition(self.x + math.random(0,self.w), self.y + math.random(0,self.h))
 		self.PS:emit(10)
 		end )
 
+end
+
+function Neon:onLand()
+		self.anim:gotoFrame(1) 
+		self.anim:resume() 
+		self.PS:setPosition(self.x + math.random(0,self.w), self.y + math.random(0,self.h))
+		self.PS:emit(10)
+end
+
+function Neon:onWallLand()
+	self:onLand()
 end
 
 function Neon:update(dt)
@@ -64,7 +77,10 @@ local Off = Neon:addState('Off')
 	
 function Off:enteredState()
 	self.properties.passable = true
+  self.properties.shadows = false
 	self.anim:gotoFrame(3)
+	self.light:destroy()
+
 end
 
 function Off:update(dt)
@@ -79,8 +95,10 @@ end
 
 function Off:exitedState()
 	self.properties.passable = false
+	self.properties.shadows = true
 	self.anim:gotoFrame(1) 
 	self.anim:resume() 
+	self.light = Light:new(self.map, self.Gx+2, self.Gy+2, 'rectangle', self.w/2-4, self.h/2-4, "normal")
 end
 
 return Neon
