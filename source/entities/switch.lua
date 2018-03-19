@@ -90,6 +90,7 @@ function Switch:possessedKeyPressed(player, key)
 			self.properties.playerpassable = true
 			player.timer:after(0.2, function() self.properties.possessable = true self.properties.playerpassable = false end )
 			player:gotoState("Dash") 
+			self.map.camera:screenShake(0.1, 2, 0)
 		else 
 
 			if self.on then 
@@ -107,13 +108,14 @@ function Switch:possessedKeyPressed(player, key)
 				player:gotoState(nil) 
 				player.timer:after(0.05, function() player.charge = 1 end )
 			end
+			self.map.camera:screenShake(0.1, 0, 2)
 		end
 
-		self.map.camera:screenShake(0.1, 2, 0)
+		
 	end
 
 
-	player.timer:tween(0.1, self, {Ox = self.Ox-1}, "in-out-cubic", function() player.timer:tween(0.1, self, {Ox = self.Ox+2}, "in-out-cubic", function() player.timer:tween(0.1, self, {Ox = self.Ox-1}, "in-out-cubic")   end)   end)
+	player.timer:tween(0.1, self, {Oy = self.Oy-1}, "in-out-cubic", function() player.timer:tween(0.1, self, {Oy = self.Oy+2}, "in-out-cubic", function() player.timer:tween(0.1, self, {Oy = self.Oy-1}, "in-out-cubic")   end)   end)
 
 end
 

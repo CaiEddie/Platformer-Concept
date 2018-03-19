@@ -753,7 +753,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["switch"] = "B"
+            ["switch"] = "A"
           }
         },
         {
@@ -874,7 +874,7 @@ return {
             { x = 24, y = 40 }
           },
           properties = {
-            ["switch"] = "A"
+            ["switch"] = "B"
           }
         },
         {

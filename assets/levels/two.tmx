@@ -237,7 +237,7 @@
   </object>
   <object id="135" name="Switch" x="176" y="128" width="8" height="16">
    <properties>
-    <property name="switch" value="B"/>
+    <property name="switch" value="A"/>
    </properties>
   </object>
   <object id="136" name="Switch" x="88" y="128" width="8" height="16">
@@ -275,7 +275,7 @@
   </object>
   <object id="149" name="Wire" x="232" y="144">
    <properties>
-    <property name="switch" value="A"/>
+    <property name="switch" value="B"/>
    </properties>
    <polyline points="0,0 8,24 24,40"/>
   </object>
