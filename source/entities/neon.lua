@@ -45,6 +45,11 @@ function Neon:initialize(map, world, x, y, properties)
 		self.PS:emit(10)
 		end )
 
+	if not self.map.level.properties[self.properties.switch] then 
+		self:gotoState('Off')
+	end
+
+
 end
 
 function Neon:onLand()

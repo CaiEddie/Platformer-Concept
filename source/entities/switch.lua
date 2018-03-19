@@ -30,7 +30,7 @@ function Switch:initialize(map, world, x, y, properties)
 	self.Oy = self.Gy - self.y 
 	self.Sx = 1 
 	self.Sy = 1
-	self.on = true
+	self.on = self.map.level.properties[self.properties.switch]
 	self.light = Light:new(self.map, self.Gx, self.Gy, 'circle', 0.3, 0.3, "normal")
 
 	self.timer = Timer()

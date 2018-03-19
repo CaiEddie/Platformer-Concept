@@ -84,12 +84,12 @@ function Vase:moveCollisions(dt)
 		
 		if col.other.properties.bounciness and self.properties.possessed and self.map.player.leftKey then
 			self.dx = jumpSpeed/3
-			self.timer:after(0.1, function() self.properties.active = true end)
+			self.timer:after(0.005, function() self.properties.active = true end)
 		end
 
 		if col.other.properties.bounciness and self.properties.possessed and self.map.player.rightKey then
 			self.dx = -jumpSpeed/3
-			self.timer:after(0.1, function() self.properties.active = true end)
+			self.timer:after(0.005, function() self.properties.active = true end)
 		end
 
 
