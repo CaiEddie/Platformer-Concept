@@ -3,7 +3,7 @@ local sti = require 'lib.sti'
 local Camera = require 'source.camera' 
 local Timer = require 'lib.timer'
 
-local debugroom = 'dashroom1'
+local debugroom = 'stealthroom1'
 
 local entityList = {
 	Player = require 'source.entities.player',
