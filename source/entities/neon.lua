@@ -5,8 +5,18 @@ local anim8 = require 'lib.anim8'
 local Timer = require 'lib.timer'
 local Light = require 'source.entities.light'
 
+
+local humSound = love.audio.newSource({'assets/sounds/neon.wav'}, "static")
+humSound:setLooping(true)
+humSound:setVolume(0.2)
+humSound:play()
+
+local flickerSound = love.audio.newSource({'assets/sounds/flicker.wav'}, "static")
+flickerSound:setVolume(0.1)
+
 local Neon = class('Neon', Entity)
 Neon:include(Stateful)
+
 
 local particleimg = love.graphics.newImage('assets/sprites/neon/particles.png')
 
@@ -25,6 +35,7 @@ function Neon:initialize(map, world, x, y, properties)
   self.properties = properties
   self.properties.shadows = true
 
+
  	self.Gx, self.Gy = self:getCenter()
 	self.light = Light:new(self.map, self.Gx+2, self.Gy+2, 'rectangle', w/2-4, h/2-4, "normal")
 
@@ -38,14 +49,15 @@ function Neon:initialize(map, world, x, y, properties)
 	local grid = anim8.newGrid(self.w, self.h, self.img:getWidth(), self.img:getHeight())
 	self.anim = anim8.newAnimation(grid(1, '1-3', 1,1), 0.05, "pauseAtEnd")
 	self.timer = Timer()
-	self.timer:every({0.1, 10}, function() 
+	self.timer:every({0.1, 20}, function() 
 		self.anim:gotoFrame(1) 
 		self.anim:resume() 
 		self.PS:setPosition(self.x + math.random(0,self.w), self.y + math.random(0,self.h))
 		self.PS:emit(10)
+			playSound(flickerSound)
 		end )
 
-
+  self:gotoState('Off')
 
 end
 
@@ -54,6 +66,7 @@ function Neon:onLand()
 		self.anim:resume() 
 		self.PS:setPosition(self.x + math.random(0,self.w), self.y + math.random(0,self.h))
 		self.PS:emit(10)
+		playSound(flickerSound)
 end
 
 function Neon:onWallLand()
@@ -90,6 +103,8 @@ function Off:enteredState()
 	self.anim:gotoFrame(3)
 	self.light:destroy()
 
+	humSound:pause()
+
 end
 
 function Off:update(dt)
@@ -119,6 +134,8 @@ function Off:exitedState()
 	self.anim:gotoFrame(1) 
 	self.anim:resume() 
 	self.light = Light:new(self.map, self.Gx+2, self.Gy+2, 'rectangle', self.w/2-4, self.h/2-4, "normal")
+
+	humSound:resume()
 end
 
 return Neon

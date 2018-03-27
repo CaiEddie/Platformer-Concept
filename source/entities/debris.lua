@@ -10,6 +10,9 @@ local maxTime = 3
 local maxSpin = 2
 local friction = 30
 
+local landSound = love.audio.newSource({'assets/sounds/glassshard1.wav', 'assets/sounds/glassshard2.wav'}, "static")
+landSound:setVolume(0.5)
+
 
 function Debris:initialize(parent, map, world, x, y, img, vel)
 
@@ -47,6 +50,10 @@ function Debris:checkOnGround(ny, other, dt)
     if other.actualdx then 
       self.dx = other.actualdx
     end
+    if not self.landed then 
+      playSound(landSound)
+    end
+    self.landed = true
   end
 end
 

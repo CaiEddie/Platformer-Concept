@@ -11,6 +11,13 @@ local height = 22
 
 local jumpSpeed = -200
 
+local onSound = love.audio.newSource("assets/sounds/switch.wav", "static")
+onSound:setVolume(0.5)
+
+local offSound = love.audio.newSource("assets/sounds/switch.wav", "static")
+offSound:setPitch(0.6)
+offSound:setVolume(0.5)
+
 local Switch = class ('LevelChange', Entity)
 Switch.static.drawOrder = 2
 
@@ -84,11 +91,13 @@ function Switch:possessedKeyPressed(player, key)
 
 	if key == 'x' or key == 'c' then
 
-		if  key == 'x' and (player.leftKey or player.rightKey) and not (player.leftKey and player.rightKey) then 
 			self.properties.possessed = false
 			self.properties.possessable = false 
 			self.properties.playerpassable = true
-			player.timer:after(0.2, function() self.properties.possessable = true self.properties.playerpassable = false end )
+			player.timer:after(0.4, function() self.properties.possessable = true self.properties.playerpassable = false end )
+
+		if  key == 'x' and (player.leftKey or player.rightKey) and not (player.leftKey and player.rightKey) then 
+
 			player:gotoState("Dash") 
 			self.map.camera:screenShake(0.1, 2, 0)
 		else 
@@ -100,6 +109,8 @@ function Switch:possessedKeyPressed(player, key)
 				player.dy = -jumpSpeed
 				player:gotoState(nil) 
 				player.timer:after(0.05, function() player.charge = 1 end )
+
+				playSound(offSound)
 			else 
 				self.map.level.properties[self.properties.switch] = true
 				self.on = true 
@@ -107,6 +118,8 @@ function Switch:possessedKeyPressed(player, key)
 				player.dy = jumpSpeed
 				player:gotoState(nil) 
 				player.timer:after(0.05, function() player.charge = 1 end )
+
+				playSound(onSound)
 			end
 			self.map.camera:screenShake(0.1, 0, 2)
 		end

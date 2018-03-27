@@ -2,6 +2,7 @@ local class = require 'lib.middleclass'
 local Entity = require 'source.entities.entity'
 local Stateful = require 'lib.stateful'
 local Timer = require 'lib.timer'
+							require 'lib.slam'
 local Light = require 'source.entities.light'
 local Dust = require 'source.entities.dust'
 local DustParticles = require 'source.entities.dustparticles'
@@ -42,6 +43,21 @@ local imgPart2O = love.graphics.newImage('assets/sprites/player/player2outline.p
 local imgPart3O = love.graphics.newImage('assets/sprites/player/player3outline.png')
 local imgPart4O = love.graphics.newImage('assets/sprites/player/player4outline.png')
 local partTween = 0.4
+
+local jumpSound = love.audio.newSource("assets/sounds/jump.wav", "static")
+jumpSound:setVolume(0.05)
+local dashSound = love.audio.newSource("assets/sounds/woosh.ogg", "static")
+dashSound:setVolume(0.1)
+local landSound = love.audio.newSource("assets/sounds/jump.wav", "static")
+landSound:setPitch(0.6)
+landSound:setVolume(0.05)
+local frictionSound = love.audio.newSource({'assets/sounds/shelf.wav'}, "static")
+frictionSound:setPitch(1.5)
+frictionSound:setVolume(0.2)
+frictionSound:setLooping(true)
+frictionSound:play()
+frictionSound:pause()
+
 
 function Player:initialize(map, world, x,y)
 	Entity.initialize(self, map, world, x, y, width, height)
@@ -286,6 +302,11 @@ function OnGround:enteredState()
 	if self.ground and self.ground.onLand then 
 		self.ground:onLand()
 	end
+
+	playSound(landSound)
+
+	jumpSound:setPitch(1)
+	dashSound:setPitch(1)
 end
 
 function OnGround:jump()
@@ -308,6 +329,7 @@ function OnGround:jump()
 
 	self.dustParticles:emit(10, self.Gx, self.Gy + self.w)
 
+	playSound(jumpSound)
 end
 
 function OnGround:checkOnGround()
@@ -327,6 +349,7 @@ function OnWall:enteredState()
 	if self.wall and self.wall.onWallLand then 
 		self.wall:onWallLand()
 	end
+
 end
 
 function OnWall:applyGravity(dt)
@@ -337,6 +360,7 @@ function OnWall:applyGravity(dt)
 	    self.dy = self.dy + self.gravity *dt
 	  else 
 	  	self.dy = self.fallSpeed * wallFriction 
+	    	frictionSound:resume()
 	  end
 	else
 	  if self.dy < self.fallSpeed  then 
@@ -376,9 +400,14 @@ function OnWall:jump()
 			self:gotoState(nil)
 			self.properties.movable = false 
 			self.timer:after(wallJumpMoveDelay, function() self.properties.movable = true end)
+
+	playSound(jumpSound)
+	jumpSound:setPitch(jumpSound:getPitch()+0.1)
+	dashSound:setPitch(dashSound:getPitch()+0.1)
 end
 
 function OnWall:exitedState() 
+	frictionSound:pause()
 end
 
 local Dash = Player:addState('Dash')
@@ -413,6 +442,10 @@ function Dash:enteredState()
 			self:checkTarget()
 		end
 	self.dustParticles:emit(20, self.Gx, self.Gy)
+
+	playSound(dashSound)
+	jumpSound:setPitch(jumpSound:getPitch()+0.1)
+	dashSound:setPitch(dashSound:getPitch()+0.1)
 end
 
 function Dash:checkTarget()

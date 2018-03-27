@@ -25,6 +25,13 @@ local haccel = 500
 local hspeed = 40
 local friction = 18
 
+local moveSound = love.audio.newSource({'assets/sounds/glass.wav'}, "static")
+moveSound:setVolume(0.5)
+local frictionSound = love.audio.newSource({'assets/sounds/shelf.wav'}, "static")
+frictionSound:setLooping(true)
+frictionSound:play()
+frictionSound:pause()
+
 function Shelf:initialize(map, world, x, y)
 	Entity.initialize(self, map, world, x, y, width, height)
 	self.img = img 
@@ -108,6 +115,14 @@ function Shelf:moveCollisions(dt)
 		self.actualdx = (rx - self.x) /dt
 		self.actualdy = (ry - self.y) /dt
 
+		if self.actualdx ~= 0 then 
+			frictionSound:resume()
+		else
+			frictionSound:pause()
+		end
+
+
+
 		self.x = rx 
 		self.y = ry 
 
@@ -149,6 +164,7 @@ function Shelf:die()
 end
 
 function Shelf:possessedEntered(player)
+	playSound(moveSound)
 	self.properties.possessed = true
 	player.timer:tween(0.1, self, {Ox = self.Ox-1}, "in-out-cubic", function() player.timer:tween(0.1, self, {Ox = self.Ox+2}, "in-out-cubic", function() player.timer:tween(0.1, self, {Ox = self.Ox-1}, "in-out-cubic")   end)   end)
 end
@@ -166,6 +182,7 @@ function Shelf:possessedUpdate(player, dt)
 					dx = dx - haccel * dt
 				end
 				self.img = img2
+
 			end
 
 			if player.rightKey then
@@ -173,15 +190,17 @@ function Shelf:possessedUpdate(player, dt)
 					dx = dx + haccel * dt
 				end
 				self.img = img3
+
 			end
 
 		self.dx, self.dy = dx, dy
 
 		if not (player.leftKey or player.rightKey) then
+			if self.dx ~= 0 then
+				playSound(moveSound)
+			end
 			self.dx = 0
 		end
-
-
 
 	player.y = self.Gy -2
 end
@@ -189,7 +208,7 @@ end
 
 function Shelf:possessedKeyPressed(player, key)
 
-
+	playSound(moveSound)
 	if key == "x" then
 
 
@@ -239,6 +258,7 @@ function Shelf:possessedKeyPressed(player, key)
 			self.dx = 0 
 
 			player:gotoState("Dash") 
+			frictionSound:pause()
 		end
 
 

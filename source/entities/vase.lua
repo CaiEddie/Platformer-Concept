@@ -24,6 +24,13 @@ local eyesOy = 2
 
 local friction = 0.0001
 
+local breakSound = love.audio.newSource({'assets/sounds/glassbreak1.wav', 'assets/sounds/glassbreak2.wav', 'assets/sounds/glassbreak3.wav'}, "static")
+breakSound:setVolume(0.4)
+local moveSound = love.audio.newSource({'assets/sounds/glass.wav'}, "static")
+moveSound:setVolume(0.5)
+local jumpSound = love.audio.newSource("assets/sounds/jump.wav", "static")
+jumpSound:setVolume(0.05)
+
 function Vase:initialize(map, world, x, y)
 	Entity.initialize(self, map, world, x, y, width, height)
 	self.originalX = x 
@@ -45,6 +52,7 @@ function Vase:initialize(map, world, x, y)
 
 	self.dustParticles = DustParticles:new(self.x, self.y)
 	self.light = Light:new(self.map, self.x, self.y,'circle', 0.3, 0.3, "normal")
+
 end
 
 function Vase:filter(other)
@@ -176,6 +184,8 @@ function Vase:die()
 	Debris:new(self, self.map, self.world, self.Gx, self.Gy, debris3, 200)
 
 	self.timer:after(respawnTime, function() self:respawn() end )
+
+	playSound(breakSound)
 end
 
 function Vase:respawn()
@@ -195,6 +205,8 @@ end
 function Vase:possessedEntered(player)
 	self.properties.possessed = true
 	self.timer:tween(0.1, self, {r = 0.2, Ox = self.Ox-1}, "in-out-cubic", function() player.timer:tween(0.1, self, {r=-0.2, Ox = self.Ox+2}, "in-out-cubic", function() player.timer:tween(0.1, self, {r=0, Ox = self.Ox-1}, "in-out-cubic")   end)   end)
+	playSound(moveSound)
+
 end
 
 function Vase:possessedUpdate(player, dt)
@@ -215,7 +227,7 @@ function Vase:possessedKeyPressed(player, key)
 		self.timer:after(0.1, function() self.properties.active = true end)
 
 		 self.dustParticles:emit(20, self.Gx, self.Gy +4)
-
+		playSound(jumpSound)
 	end
 
 	if key == "x" then
@@ -223,6 +235,8 @@ function Vase:possessedKeyPressed(player, key)
 		self.properties.possessed = false
 		self:die()
 	end
+
+	playSound(moveSound)
 
 	self.timer:tween(0.1, self, {r = 0.2, Ox = self.Ox-1}, "in-out-cubic", function() player.timer:tween(0.1, self, {r=-0.2, Ox = self.Ox+2}, "in-out-cubic", function() player.timer:tween(0.1, self, {r=0, Ox = self.Ox-1}, "in-out-cubic")   end)   end)
 
