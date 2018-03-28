@@ -25,7 +25,7 @@ function Light:update(dt)
 end
 
 function Light:drawEdge(canvas, debug)
-	if self.shape == circle then 
+	if self.shape == 'circle' then 
 		lg.setCanvas(buffer)
 		lg.clear(0,0,0)
 		lg.setBlendMode('multiply')
