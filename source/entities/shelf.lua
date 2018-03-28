@@ -27,7 +27,7 @@ local friction = 18
 
 local moveSound = love.audio.newSource({'assets/sounds/glass.wav'}, "static")
 moveSound:setVolume(0.5)
-local frictionSound = love.audio.newSource({'assets/sounds/shelf.wav'}, "static")
+local frictionSound = love.audio.newSource({'assets/sounds/friction.wav'}, "static")
 frictionSound:setLooping(true)
 frictionSound:play()
 frictionSound:pause()

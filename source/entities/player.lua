@@ -51,7 +51,10 @@ dashSound:setVolume(0.1)
 local landSound = love.audio.newSource("assets/sounds/jump.wav", "static")
 landSound:setPitch(0.6)
 landSound:setVolume(0.05)
-local frictionSound = love.audio.newSource({'assets/sounds/shelf.wav'}, "static")
+local deathSound = love.audio.newSource("assets/sounds/death.wav", "static")
+deathSound:setVolume(0.3)
+
+local frictionSound = love.audio.newSource({'assets/sounds/friction.wav'}, "static")
 frictionSound:setPitch(1.5)
 frictionSound:setVolume(0.2)
 frictionSound:setLooping(true)
@@ -288,6 +291,8 @@ function Player:die()
 	self.dy = jumpEndSpeed*5
 	self.dustParticles:emit(20, self.Gx, self.Gy)
 	self.timer:tween(1, self, {Sx = 0, Sy = 0, r = 3}, 'in-out-cubic', function() self.map:reset() end )
+	playSound(deathSound)
+	self.light:die()
 end
 
 local OnGround = Player:addState('OnGround')
@@ -481,6 +486,8 @@ function Dash:die()
 	self.dx = 0
 	self.dy = 0
 	self.timer:tween(1, self, {Sx = 0, Sy = 0, r = 3}, 'in-out-cubic', function() self.map:reset() end)
+	playSound(deathSound)
+	self.light:die()
 end
 
 function Dash:filter(other)
