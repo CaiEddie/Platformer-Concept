@@ -568,7 +568,7 @@ function Dash:exitedState()
 
 		if self.jumpKey and self.downKey and self.ground then
 			self.dy = jumpSpeed 
-			self.dx = self.dx*0.5
+			self.dx = self.dx*0.4
 			self.charge = 1
 		else
 			self.dx = 0
