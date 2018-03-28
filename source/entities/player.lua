@@ -314,6 +314,32 @@ function OnGround:enteredState()
 	dashSound:setPitch(1)
 end
 
+function OnGround:applyMovement(dt)
+	if self.properties.isDying then return false end
+	
+	if self.properties.movable then 
+		local dx, dy = self.dx, self.dy
+
+			if self.leftKey then
+				if dx > -hspeed  then 
+					dx = dx - haccel * dt
+				end
+				self.Sx = -1 
+			end
+			if self.rightKey then
+				if dx < hspeed  then
+					dx = dx + haccel * dt
+				end
+				self.Sx = 1
+			end
+		self.dx, self.dy = dx, dy
+
+		if not (self.leftKey or self.rightKey) or self.dx > hspeed or self.dx < -hspeed then
+			self.dx = self.dx * math.pow(self.friction, dt)
+		end
+	end
+end
+
 function OnGround:jump()
 
 	self.y = self.y -3
@@ -528,7 +554,6 @@ function Dash:moveCollision(dt)
 		end
 	end
 
-
 	self.x, self.y = rx, ry
 
 end
@@ -540,8 +565,17 @@ function Dash:keypressed()
 end
 
 function Dash:exitedState()
-		self.dx = 0
-		self.dy = jumpEndSpeed
+
+		if self.jumpKey and self.downKey and self.ground then
+			self.dy = jumpSpeed 
+			self.dx = self.dx*0.5
+			self.charge = 1
+		else
+			self.dx = 0
+			self.dy = jumpEndSpeed
+		end			
+
+
 		self.world:update(self, self.x, self.y)
 		self.properties.passable = false
 end
